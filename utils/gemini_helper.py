@@ -11,9 +11,13 @@ client = genai.Client(
 
 
 def analyze_resume(prompt):
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=prompt
-    )
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.5-flash",
+            contents=prompt
+        )
 
-    return response.text
+        return response.text
+
+    except Exception as e:
+        return f"Gemini Error: {str(e)}"
