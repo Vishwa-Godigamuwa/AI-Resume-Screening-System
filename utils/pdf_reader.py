@@ -1,15 +1,19 @@
-from pypdf import PdfReader
+import os
+
+from dotenv import load_dotenv
+from google import genai
+
+load_dotenv()
+
+client = genai.Client(
+    api_key=os.getenv("GEMINI_API_KEY")
+)
 
 
-def extract_text_from_pdf(pdf_file):
-    text = ""
+def analyze_resume(prompt):
+    response = client.models.generate_content(
+        model="gemini-3.6-flash",
+        contents=prompt
+    )
 
-    reader = PdfReader(pdf_file)
-
-    for page in reader.pages:
-        page_text = page.extract_text()
-
-        if page_text:
-            text += page_text
-
-    return text
+    return response.text
