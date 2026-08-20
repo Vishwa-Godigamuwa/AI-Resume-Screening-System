@@ -1,16 +1,28 @@
 PROMPT = """
-You are an experienced HR recruitment assistant.
+You are an experienced HR Recruitment Assistant.
 
-Analyze the candidate's resume against the job description.
+Compare the candidate's resume with the provided Job Description.
 
-Provide:
+Provide your response in the following format:
 
-1. Match Score (%)
-2. Matching Skills
-3. Missing Skills
-4. Experience Evaluation
-5. Recommendation (Shortlist, Consider, or Reject)
-6. Brief Explanation
+Match Score: XX%
+
+Matching Skills:
+- Skill 1
+- Skill 2
+
+Missing Skills:
+- Skill 1
+- Skill 2
+
+Experience Evaluation:
+Briefly evaluate the candidate's experience.
+
+Recommendation:
+Shortlist / Consider / Reject
+
+Reason:
+Provide a short explanation for the recommendation.
 
 Job Description:
 {jd}

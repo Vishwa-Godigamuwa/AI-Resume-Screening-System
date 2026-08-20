@@ -42,13 +42,10 @@ if st.button("Analyze Resume"):
         )
 
         # Build prompt
-        prompt = f"""
-Resume:
-
-{resume_text}
-
-Give a 3 sentence summary of this candidate.
-"""
+        prompt = PROMPT.format(
+    jd=job_description,
+    resume=resume_text
+)
 
         # Show loading indicator
         with st.spinner("Analyzing Resume..."):
